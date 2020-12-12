@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PhoneService from '../../lib/phone-service'
+import PhoneList from '../../components/PhoneList/PhoneList'
 
 class Phones extends Component {
   state = {
@@ -13,7 +14,6 @@ class Phones extends Component {
   getAllPhonesList = () => {
     PhoneService.getAllPhones()
       .then((responseFromApi) => {
-          console.log(responseFromApi, "response")
         this.setState({
           listOfPhones: responseFromApi,
         });
@@ -22,13 +22,9 @@ class Phones extends Component {
 
   render() {
     return <div>
-        {this.state.listOfPhones.length > 0 && this.state.listOfPhones.map((eachPhone, index) => {
-            return(
-                <ul key={index._id}>
-                    <li>{eachPhone.name}</li>
-                </ul>
-            )
-        })}
+     {this.state.listOfPhones.length > 0 && (
+            <PhoneList phones={this.state.listOfPhones} />
+          )}
     </div>;
   }
 }
