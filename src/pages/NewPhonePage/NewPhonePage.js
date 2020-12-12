@@ -52,7 +52,7 @@ class NewPhonePage extends Component {
               value={this.state.name}
               onChange={(event) => this.handleChange(event)}
             />
-            <br />
+        
 
             <label>Manufacturer:</label>
             <input
@@ -61,7 +61,7 @@ class NewPhonePage extends Component {
               value={this.state.manufacturer}
               onChange={(event) => this.handleChange(event)}
             />
-            <br />
+       
             <label>Description:</label>
             <input
               type="text"
@@ -69,7 +69,7 @@ class NewPhonePage extends Component {
               value={this.state.description}
               onChange={(event) => this.handleChange(event)}
             />
-            <br />
+     
             <label>Color:</label>
             <input
               type="text"
@@ -77,7 +77,7 @@ class NewPhonePage extends Component {
               value={this.state.color}
               onChange={(event) => this.handleChange(event)}
             />
-            <br />
+   
             <label>Price:</label>
             <input
               type="text"
@@ -85,7 +85,7 @@ class NewPhonePage extends Component {
               value={this.state.price}
               onChange={(event) => this.handleChange(event)}
             />
-            <br />
+          
             <label>Image:</label>
             <input
               type="text"
@@ -93,7 +93,7 @@ class NewPhonePage extends Component {
               value={this.state.imageFileName}
               onChange={(event) => this.handleChange(event)}
             />
-            <br />
+          
 
             <label>Screen:</label>
             <input
@@ -102,7 +102,7 @@ class NewPhonePage extends Component {
               value={this.state.screen}
               onChange={(event) => this.handleChange(event)}
             />
-            <br />
+        
 
             <label>Processor:</label>
             <input
@@ -111,7 +111,7 @@ class NewPhonePage extends Component {
               value={this.state.processor}
               onChange={(event) => this.handleChange(event)}
             />
-            <br />
+         
             <label>Ram:</label>
             <input
               type="text"
@@ -119,7 +119,7 @@ class NewPhonePage extends Component {
               value={this.state.ram}
               onChange={(event) => this.handleChange(event)}
             />
-            <br />
+          
 
             <input type="submit" value="ADD NOW" />
           </div>
