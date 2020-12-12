@@ -14,8 +14,8 @@ class NewPhonePage extends Component {
     ram: 0,
   };
 
-  handleChange = (updatedInfo) => {
-    const { name, value } = updatedInfo.target;
+  handleChange = (event) => {
+    const { name, value } = event.target;
     this.setState({ [name]: value });
   };
 
@@ -50,7 +50,7 @@ class NewPhonePage extends Component {
               type="text"
               name="name"
               value={this.state.name}
-              onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+              onChange={(event) => this.handleChange(event)}
             />
             <br />
 
@@ -59,7 +59,7 @@ class NewPhonePage extends Component {
               type="text"
               name="manufacturer"
               value={this.state.manufacturer}
-              onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+              onChange={(event) => this.handleChange(event)}
             />
             <br />
             <label>Description:</label>
@@ -67,7 +67,7 @@ class NewPhonePage extends Component {
               type="text"
               name="description"
               value={this.state.description}
-              onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+              onChange={(event) => this.handleChange(event)}
             />
             <br />
             <label>Color:</label>
@@ -75,7 +75,7 @@ class NewPhonePage extends Component {
               type="text"
               name="color"
               value={this.state.color}
-              onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+              onChange={(event) => this.handleChange(event)}
             />
             <br />
             <label>Price:</label>
@@ -83,7 +83,7 @@ class NewPhonePage extends Component {
               type="text"
               name="price"
               value={this.state.price}
-              onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+              onChange={(event) => this.handleChange(event)}
             />
             <br />
             <label>Image:</label>
@@ -91,7 +91,7 @@ class NewPhonePage extends Component {
               type="text"
               name="imageFileName"
               value={this.state.imageFileName}
-              onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+              onChange={(event) => this.handleChange(event)}
             />
             <br />
 
@@ -100,7 +100,7 @@ class NewPhonePage extends Component {
               type="text"
               name="screen"
               value={this.state.screen}
-              onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+              onChange={(event) => this.handleChange(event)}
             />
             <br />
 
@@ -109,7 +109,7 @@ class NewPhonePage extends Component {
               type="text"
               name="processor"
               value={this.state.processor}
-              onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+              onChange={(event) => this.handleChange(event)}
             />
             <br />
             <label>Ram:</label>
@@ -117,7 +117,7 @@ class NewPhonePage extends Component {
               type="text"
               name="ram"
               value={this.state.ram}
-              onChange={(updatedInfo) => this.handleChange(updatedInfo)}
+              onChange={(event) => this.handleChange(event)}
             />
             <br />
 
