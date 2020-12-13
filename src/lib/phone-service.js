@@ -19,6 +19,21 @@ class PhoneService {
         console.log(error);
       }
     };
+    
+    handleUpload = async (theImage, phoneId) => {
+      try {
+        const uploadData = new FormData();
+        uploadData.append("file", theImage);
+        const response = await this.axios.post(
+          `/uploadphone/${phoneId}`,
+          uploadData,
+          { headers: { "Content-Type": "multipart/form-data" } }
+        );
+        return response.data;
+      } catch (error) {
+        console.log(error);
+      }
+    };
   }
   
   const axiosRequestFunctions = new PhoneService();

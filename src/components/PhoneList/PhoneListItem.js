@@ -6,7 +6,7 @@ class PhoneListItem extends Component {
     return (
       <div key={this.props.onePhone._id}>
         <div>
-          <img src={this.props.onePhone.imageFileName} alt="phone" />
+          <img src={this.props.onePhone.imageFileUrl} alt="phone" />
         </div>
         <div>
           <p>{this.props.onePhone.name}</p>

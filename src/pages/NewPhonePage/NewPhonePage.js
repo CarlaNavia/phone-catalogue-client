@@ -8,33 +8,46 @@ class NewPhonePage extends Component {
     description: "",
     color: "",
     price: 0,
-    imageFileName: "",
+    imageFileUrl: "",
     screen: "",
     processor: "",
     ram: 0,
   };
 
   handleChange = (event) => {
-    const { name, value } = event.target;
+    let { name, value } = event.target;
     this.setState({ [name]: value });
+  };
+
+  handleFileUpload = async (event) => {
+    const files = event.target.files[0];
+    this.setState({ imageFileUrl: files });
   };
 
   handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      await PhoneService.newPhone(this.state); 
+      console.log(this.state, "this.state")
+      const newPhoneResponse = await PhoneService.newPhone(this.state);
+      console.log(newPhoneResponse, "newPhoneResponse")
+      debugger
+      await PhoneService.handleUpload(
+        this.state.imageFileUrl,
+        newPhoneResponse._id
+      );
+      debugger
       this.setState({
         name: "",
         manufacturer: "",
         description: "",
         color: "",
         price: 0,
-        imageFileName: "",
+        imageFileUrl: "",
         screen: "",
         processor: "",
         ram: 0,
       });
-      this.props.history.push("/");
+      this.props.history.push('/')
     } catch (error) {
       console.log("Error while adding a new phone: ", error);
     }
@@ -52,7 +65,6 @@ class NewPhonePage extends Component {
               value={this.state.name}
               onChange={(event) => this.handleChange(event)}
             />
-        
 
             <label>Manufacturer:</label>
             <input
@@ -61,7 +73,7 @@ class NewPhonePage extends Component {
               value={this.state.manufacturer}
               onChange={(event) => this.handleChange(event)}
             />
-       
+
             <label>Description:</label>
             <input
               type="text"
@@ -69,7 +81,7 @@ class NewPhonePage extends Component {
               value={this.state.description}
               onChange={(event) => this.handleChange(event)}
             />
-     
+
             <label>Color:</label>
             <input
               type="text"
@@ -77,7 +89,7 @@ class NewPhonePage extends Component {
               value={this.state.color}
               onChange={(event) => this.handleChange(event)}
             />
-   
+
             <label>Price:</label>
             <input
               type="text"
@@ -85,15 +97,14 @@ class NewPhonePage extends Component {
               value={this.state.price}
               onChange={(event) => this.handleChange(event)}
             />
-          
-            <label>Image:</label>
+
+            <label htmlFor="file-upload">Image:</label>
             <input
-              type="text"
-              name="imageFileName"
-              value={this.state.imageFileName}
-              onChange={(event) => this.handleChange(event)}
+              id="file-upload"
+              type="file"
+              onChange={(event) => this.handleFileUpload(event)}
             />
-          
+            <div id="info"></div>
 
             <label>Screen:</label>
             <input
@@ -102,7 +113,6 @@ class NewPhonePage extends Component {
               value={this.state.screen}
               onChange={(event) => this.handleChange(event)}
             />
-        
 
             <label>Processor:</label>
             <input
@@ -111,7 +121,7 @@ class NewPhonePage extends Component {
               value={this.state.processor}
               onChange={(event) => this.handleChange(event)}
             />
-         
+
             <label>Ram:</label>
             <input
               type="text"
@@ -119,7 +129,6 @@ class NewPhonePage extends Component {
               value={this.state.ram}
               onChange={(event) => this.handleChange(event)}
             />
-          
 
             <input type="submit" value="ADD NOW" />
           </div>
