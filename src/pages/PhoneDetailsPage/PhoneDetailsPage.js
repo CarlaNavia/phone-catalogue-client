@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PhoneService from "../../lib/phone-service";
-import PhoneDetail from "../../components/PhoneDetail"
+import PhoneDetail from "../../components/PhoneDetail";
 
 class PhoneDetailsPage extends Component {
   state = {
@@ -11,28 +11,32 @@ class PhoneDetailsPage extends Component {
     this.getOnePhone();
   }
 
-  getOnePhone() {
-    PhoneService.getAPhone(this.props.phoneId).then((thePhone) =>
-      this.setState({ aPhone: thePhone })
-    )
-    .catch((err) => {
+  getOnePhone = () => {
+    const { params } = this.props.match;
+    PhoneService.getAPhone(params.id)
+      .then((responseFromApi) => {
+        this.setState({ aPhone: responseFromApi });
+      })
+      .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
-  deleteOnePhone = (phoneId) => {
-    PhoneService.deleteAPhone(phoneId).then(() => {
-      this.props.history.push("/");
-    })
-    .catch((err) => {
+  deleteOnePhone = () => {
+    const { params } = this.props.match;
+    PhoneService.deleteAPhone(params.id)
+      .then(() => {
+        this.props.history.push("/");
+      })
+      .catch((err) => {
         console.log(err);
       });
   };
 
   render() {
     return (
-        <div>
-        <PhoneDetail eachPhone={this.state.aPhone} />
+      <div>
+        <PhoneDetail eachPhoneDetail={this.state.aPhone} />
         <button onClick={() => this.deleteOnePhone()}>Delete</button>
       </div>
     );

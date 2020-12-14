@@ -6,7 +6,7 @@ class PhoneList extends Component {
   render() {
     return (
       <ul>
-        {this.props.phones.map((eachPhone, index) => {
+        {this.props.eachPhone.map((eachPhone, index) => {
           return (
             <Link key={eachPhone._id} to={`/phone/${eachPhone._id}`}>
               <PhoneListItem key={index} onePhone={eachPhone} />

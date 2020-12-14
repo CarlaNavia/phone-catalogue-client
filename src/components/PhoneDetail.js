@@ -1,17 +1,17 @@
 import React from "react";
 
-function PhoneDetail({ eachPhone }) {
+function PhoneDetail({ eachPhoneDetail }) {
   return (
     <div>
-      <h2>{eachPhone.name}</h2>
-      <p>{eachPhone.manufacturer}</p>
-      <p>{eachPhone.description}</p>
-      <p>{eachPhone.color}</p>
-      <p>{eachPhone.price}</p>
-      <img src={eachPhone.imageFileUrl} alt="imageFile" />
-      <p>{eachPhone.screen}</p>
-      <p>{eachPhone.processor}</p>
-      <p>{eachPhone.ram}</p>
+      <h2>{eachPhoneDetail.name}</h2>
+      <p>{eachPhoneDetail.manufacturer}</p>
+      <p>{eachPhoneDetail.description}</p>
+      <p>{eachPhoneDetail.color}</p>
+      <p>{eachPhoneDetail.price}</p>
+      <img src={eachPhoneDetail.imageFileUrl} alt="imageFile" />
+      <p>{eachPhoneDetail.screen}</p>
+      <p>{eachPhoneDetail.processor}</p>
+      <p>{eachPhoneDetail.ram}</p>
     </div>
   );
 }
