@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import PhoneService from "../../lib/phone-service"
+import PhoneService from "../../lib/phone-service";
 
 class EditPhone extends Component {
   state = {
-    currentPhone: {}
+    currentPhone: {},
   };
 
   getOnePhone = () => {
@@ -22,16 +22,18 @@ class EditPhone extends Component {
     PhoneService.handleUpload(files).then((data) => {
       this.setState({ currentPhone: data });
     });
-}
+  }
 
-handleChange(event, propertyName) {
+  handleChange(event, propertyName) {
     let copyPhone = this.state.currentPhone;
     copyPhone[propertyName] = event.target.value;
     this.setState({ currentPhone: copyPhone });
   }
-  
-  handleFormSubmit(event) {
+
+  handleFormSubmit = (event) => {
     event.preventDefault();
+    debugger
+    console.log(this.state.currentPhone, "current")
     PhoneService.editAPhone(
       this.state.currentPhone._id,
       this.state.currentPhone
@@ -41,9 +43,8 @@ handleChange(event, propertyName) {
   }
 
   componentDidMount() {
-    this.getOnePhone()
+    this.getOnePhone();
   }
-  
 
   render() {
     return (

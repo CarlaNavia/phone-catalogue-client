@@ -41,7 +41,6 @@ class PhoneDetailsPage extends Component {
         <PhoneDetail eachPhoneDetail={this.state.aPhone} />
         <Link
           to={`/edit/${this.state.aPhone._id}`}
-          thePhone={this.state.aPhone}
         >
           Edit Phone
         </Link>

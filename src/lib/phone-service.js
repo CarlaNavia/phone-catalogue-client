@@ -43,8 +43,8 @@ class PhoneService {
     return this.axios.delete(`/phones/${phoneId}`).then(({ data }) => data);
   }
 
-  editAPhone(phoneId) {
-    return this.axios.put(`/phones/${phoneId}`).then(({ data }) => data);
+  editAPhone(phoneId, phone) {
+    return this.axios.put(`/phones/${phoneId}`, phone).then(({ data }) => data);
   }
 }
 
