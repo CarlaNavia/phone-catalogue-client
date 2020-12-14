@@ -27,6 +27,7 @@ class Phones extends Component {
         {this.state.listOfPhones.length > 0 && (
           <PhoneList phones={this.state.listOfPhones} />
         )}
+
       </div>
     );
   }
