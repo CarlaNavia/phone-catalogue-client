@@ -42,6 +42,10 @@ class PhoneService {
   deleteAPhone(phoneId) {
     return this.axios.delete(`/phones/${phoneId}`).then(({ data }) => data);
   }
+
+  editAPhone(phoneId) {
+    return this.axios.put(`/phones/${phoneId}`).then(({ data }) => data);
+  }
 }
 
 const axiosRequestFunctions = new PhoneService();

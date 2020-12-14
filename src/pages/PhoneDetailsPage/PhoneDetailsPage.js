@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PhoneService from "../../lib/phone-service";
 import PhoneDetail from "../../components/PhoneDetail";
+import { Link } from "react-router-dom";
 
 class PhoneDetailsPage extends Component {
   state = {
@@ -36,7 +37,14 @@ class PhoneDetailsPage extends Component {
   render() {
     return (
       <div>
+        <Link to={"/"}> Go back</Link>
         <PhoneDetail eachPhoneDetail={this.state.aPhone} />
+        <Link
+          to={`/edit/${this.state.aPhone._id}`}
+          thePhone={this.state.aPhone}
+        >
+          Edit Phone
+        </Link>
         <button onClick={() => this.deleteOnePhone()}>Delete</button>
       </div>
     );
