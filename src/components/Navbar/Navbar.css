@@ -6,3 +6,8 @@
     font-family: 'Amatic SC', cursive;
     font-size: 26px;
 }
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
