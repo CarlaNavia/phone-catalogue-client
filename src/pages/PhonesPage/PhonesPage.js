@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PhoneService from "../../lib/phone-service";
 import PhoneList from "../../components/PhoneList/PhoneList";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 
 class PhonesPage extends Component {
   state = {
