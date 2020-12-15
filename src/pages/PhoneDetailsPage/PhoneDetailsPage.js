@@ -4,6 +4,7 @@ import PhoneDetail from "../../components/PhoneDetail";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import FadeLoader from "react-spinners/FadeLoader";
+import "./PhoneDetailsPage"
 
 class PhoneDetailsPage extends Component {
   state = {
@@ -45,11 +46,19 @@ class PhoneDetailsPage extends Component {
     return (
       <div>
         <Navbar />
-        <FadeLoader color={"#16697a"} loading={this.state.isLoading} />
-        <Link to={"/"}> Go back</Link>
+        <div className="page">
+        <FadeLoader color="#16697a" loading={this.state.isLoading} />
+        <Link to={"/"}>
+            <img
+              className="icons"
+              src="../../../goback.png"
+              alt="back"
+            />
+          </Link>
         <PhoneDetail eachPhoneDetail={this.state.aPhone} />
         <Link to={`/edit/${this.state.aPhone._id}`}>Edit Phone</Link>
         <button onClick={() => this.deleteOnePhone()}>Delete</button>
+        </div>
       </div>
     );
   }
