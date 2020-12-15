@@ -1,0 +1,42 @@
+.card {
+  border: 1px solid rgb(205, 91, 38);
+  margin: 25px;
+  padding: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+/* @media screen and (min-width: 768px) {
+    .card{
+  
+      
+    }} */
+.distr-card {
+  flex: 1;
+}
+
+.name {
+  font-weight: bold;
+  text-align: center;
+  color: rgb(30, 77, 92);
+}
+
+.price {
+  text-align: right;
+  color: rgb(205, 91, 38);
+  font-weight: bold;
+}
+
+.others {
+  font-size: 14px;
+}
+
+.text {
+  margin-left: 10px;
+  color: rgb(105, 104, 104);
+}
+
+.bold-text {
+  font-weight: bold;
+  color: rgb(30, 77, 92);
+}
