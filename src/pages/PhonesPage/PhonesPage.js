@@ -8,7 +8,7 @@ import FadeLoader from "react-spinners/FadeLoader";
 class PhonesPage extends Component {
   state = {
     listOfPhones: [],
-    isLoading: true,
+    isLoading: false,
   };
 
   componentDidMount() {
@@ -16,6 +16,7 @@ class PhonesPage extends Component {
   }
 
   getAllPhonesList = () => {
+    this.setState({ isLoading: true });
     PhoneService.getAllPhones()
       .then((responseFromApi) => {
         this.setState({

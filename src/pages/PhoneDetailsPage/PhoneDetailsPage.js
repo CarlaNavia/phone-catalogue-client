@@ -3,10 +3,12 @@ import PhoneService from "../../lib/phone-service";
 import PhoneDetail from "../../components/PhoneDetail";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
+import FadeLoader from "react-spinners/FadeLoader";
 
 class PhoneDetailsPage extends Component {
   state = {
     aPhone: {},
+    isLoading: false,
   };
 
   componentDidMount() {
@@ -15,9 +17,13 @@ class PhoneDetailsPage extends Component {
 
   getOnePhone = () => {
     const { params } = this.props.match;
+    this.setState({ isLoading: true });
     PhoneService.getAPhone(params.id)
       .then((responseFromApi) => {
-        this.setState({ aPhone: responseFromApi });
+        this.setState({
+          aPhone: responseFromApi,
+          isLoading: false,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -39,6 +45,7 @@ class PhoneDetailsPage extends Component {
     return (
       <div>
         <Navbar />
+        <FadeLoader color={"#16697a"} loading={this.state.isLoading} />
         <Link to={"/"}> Go back</Link>
         <PhoneDetail eachPhoneDetail={this.state.aPhone} />
         <Link to={`/edit/${this.state.aPhone._id}`}>Edit Phone</Link>

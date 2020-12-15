@@ -2,18 +2,23 @@ import React, { Component } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import PhoneForm from "../../components/PhoneForm";
 import PhoneService from "../../lib/phone-service";
+import FadeLoader from "react-spinners/FadeLoader";
 
 class EditPhone extends Component {
   state = {
     currentPhone: {},
-    isLoading: true,
+    isLoading: false,
   };
 
   getOnePhone = () => {
     const { params } = this.props.match;
+    this.setState({ isLoading: true });
     PhoneService.getAPhone(params.id)
       .then((responseFromApi) => {
-        this.setState({ currentPhone: responseFromApi, isLoading: false });
+        this.setState({
+          currentPhone: responseFromApi,
+          isLoading: false,
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -34,19 +39,20 @@ class EditPhone extends Component {
   }
 
   handleFormSubmit = (currentPhone, file) => {
-    try {
-      PhoneService.editAPhone(currentPhone._id, currentPhone);
-      if (!file) {
-        this.props.history.push("/");
-      } else {
-        PhoneService.handleUpload
-      (file, currentPhone._id).then(() => {
+    this.setState({ isLoading: true });
+    PhoneService.editAPhone(currentPhone._id, currentPhone)
+      .then(() => {
+        if (!file) {
+          this.setState({ isLoading: false });
           this.props.history.push("/");
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
+        } else {
+          PhoneService.handleUpload(file, currentPhone._id).then(() => {
+            this.setState({ isLoading: false });
+            this.props.history.push("/");
+          });
+        }
+      })
+      .catch((error) => console.log(error));
   };
 
   componentDidMount() {
@@ -57,6 +63,7 @@ class EditPhone extends Component {
     return (
       <div>
         <Navbar />
+        <FadeLoader color={"#16697a"} loading={this.state.isLoading} />
         {!this.state.isLoading && (
           <PhoneForm
             onSubmit={(currentPhone, file) =>
