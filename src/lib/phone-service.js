@@ -7,6 +7,7 @@ class PhoneService {
       withCredentials: true,
     });
   }
+  
   getAllPhones() {
     return this.axios.get(`/phones`).then(({ data }) => data);
   }

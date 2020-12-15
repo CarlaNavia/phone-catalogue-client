@@ -1,16 +1,19 @@
 import React, { Component } from "react";
+import Navbar from "../../components/Navbar";
+import PhoneForm from "../../components/PhoneForm";
 import PhoneService from "../../lib/phone-service";
 
 class EditPhone extends Component {
   state = {
     currentPhone: {},
+    isLoading: true,
   };
 
   getOnePhone = () => {
     const { params } = this.props.match;
     PhoneService.getAPhone(params.id)
       .then((responseFromApi) => {
-        this.setState({ currentPhone: responseFromApi });
+        this.setState({ currentPhone: responseFromApi, isLoading: false });
       })
       .catch((err) => {
         console.log(err);
@@ -30,17 +33,15 @@ class EditPhone extends Component {
     this.setState({ currentPhone: copyPhone });
   }
 
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    debugger
-    console.log(this.state.currentPhone, "current")
-    PhoneService.editAPhone(
-      this.state.currentPhone._id,
-      this.state.currentPhone
-    ).then(() => {
+  handleFormSubmit = async (currentPhone, file) => {
+    try {
+      PhoneService.editAPhone(currentPhone._id, currentPhone);
+      await PhoneService.handleFileUpload(file, currentPhone._id);
       this.props.history.push("/");
-    });
-  }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   componentDidMount() {
     this.getOnePhone();
@@ -49,83 +50,15 @@ class EditPhone extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleFormSubmit}>
-          <div>
-            <label>Name:</label>
-            <input
-              type="text"
-              name="name"
-              value={this.state.currentPhone.name}
-              onChange={(event) => this.handleChange(event, "name")}
-            />
-
-            <label>Manufacturer:</label>
-            <input
-              type="text"
-              name="manufacturer"
-              value={this.state.currentPhone.manufacturer}
-              onChange={(event) => this.handleChange(event, "manufacturer")}
-            />
-
-            <label>Description:</label>
-            <input
-              type="text"
-              name="description"
-              value={this.state.currentPhone.description}
-              onChange={(event) => this.handleChange(event, "description")}
-            />
-
-            <label>Color:</label>
-            <input
-              type="text"
-              name="color"
-              value={this.state.currentPhone.color}
-              onChange={(event) => this.handleChange(event, "color")}
-            />
-
-            <label>Price:</label>
-            <input
-              type="text"
-              name="price"
-              value={this.state.currentPhone.price}
-              onChange={(event) => this.handleChange(event, "price")}
-            />
-
-            <label htmlFor="file-upload">Image:</label>
-            <input
-              id="file-upload"
-              type="file"
-              onChange={(event) => this.handleFileUpload(event)}
-            />
-            <div id="info"></div>
-
-            <label>Screen:</label>
-            <input
-              type="text"
-              name="screen"
-              value={this.state.currentPhone.screen}
-              onChange={(event) => this.handleChange(event, "screen")}
-            />
-
-            <label>Processor:</label>
-            <input
-              type="text"
-              name="processor"
-              value={this.state.currentPhone.processor}
-              onChange={(event) => this.handleChange(event, "processor")}
-            />
-
-            <label>Ram:</label>
-            <input
-              type="text"
-              name="ram"
-              value={this.state.currentPhone.ram}
-              onChange={(event) => this.handleChange(event, "ram")}
-            />
-
-            <input type="submit" value="Submit" />
-          </div>
-        </form>
+        <Navbar />
+        {!this.state.isLoading && (
+          <PhoneForm
+            onSubmit={(currentPhone, file) =>
+              this.handleFormSubmit(currentPhone, file)
+            }
+            currentPhone={this.state.currentPhone}
+          />
+        )}
       </div>
     );
   }

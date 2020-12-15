@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Navbar from "../../components/Navbar";
 import PhoneService from "../../lib/phone-service";
 
 class NewPhonePage extends Component {
@@ -27,27 +28,12 @@ class NewPhonePage extends Component {
   handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log(this.state, "this.state")
       const newPhoneResponse = await PhoneService.newPhone(this.state);
-      console.log(newPhoneResponse, "newPhoneResponse")
-      debugger
       await PhoneService.handleUpload(
         this.state.imageFileUrl,
         newPhoneResponse._id
       );
-      debugger
-      this.setState({
-        name: "",
-        manufacturer: "",
-        description: "",
-        color: "",
-        price: 0,
-        imageFileUrl: "",
-        screen: "",
-        processor: "",
-        ram: 0,
-      });
-      this.props.history.push('/')
+      this.props.history.push("/");
     } catch (error) {
       console.log("Error while adding a new phone: ", error);
     }
@@ -56,6 +42,7 @@ class NewPhonePage extends Component {
   render() {
     return (
       <div>
+        <Navbar />
         <form onSubmit={this.handleFormSubmit}>
           <div>
             <label>Name:</label>

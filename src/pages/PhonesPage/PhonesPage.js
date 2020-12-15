@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PhoneService from "../../lib/phone-service";
 import PhoneList from "../../components/PhoneList/PhoneList";
+import Navbar from "../../components/Navbar";
 
 class PhonesPage extends Component {
   state = {
@@ -25,16 +26,13 @@ class PhonesPage extends Component {
   render() {
     return (
       <div>
+      <Navbar />
+      <h1>Which phone are you looking for?</h1>
         <Link to="/new">Add a new phone</Link>
         <div>
-          {this.state.listOfPhones.length > 0 &&
-            this.state.listOfPhones.map((eachPhone) => {
-              return (
-                <Link key={eachPhone._id} to={`/phone/${eachPhone._id}`}>
-                  <PhoneList eachPhone={this.state.listOfPhones} />
-                </Link>
-              );
-            })}
+          <Link to={`/phone/${this.state.listOfPhones._id}`}>
+            <PhoneList eachPhone={this.state.listOfPhones} />
+          </Link>
         </div>
       </div>
     );
