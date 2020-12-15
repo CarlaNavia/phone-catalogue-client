@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
 class PhoneForm extends Component {
-  state = {
-    currentPhone: {},
-    file: {},
-  };
+  constructor(props) {
+    super(props);
+    this.state = { currentPhone: props.currentPhone, file: props.file };
+  }
 
   handleFormSubmit = (event) => {
     event.preventDefault();

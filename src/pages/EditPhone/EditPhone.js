@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 import PhoneForm from "../../components/PhoneForm";
 import PhoneService from "../../lib/phone-service";
 
@@ -33,11 +33,17 @@ class EditPhone extends Component {
     this.setState({ currentPhone: copyPhone });
   }
 
-  handleFormSubmit = async (currentPhone, file) => {
+  handleFormSubmit = (currentPhone, file) => {
     try {
       PhoneService.editAPhone(currentPhone._id, currentPhone);
-      await PhoneService.handleFileUpload(file, currentPhone._id);
-      this.props.history.push("/");
+      if (!file) {
+        this.props.history.push("/");
+      } else {
+        PhoneService.handleUpload
+      (file, currentPhone._id).then(() => {
+          this.props.history.push("/");
+        });
+      }
     } catch (error) {
       console.log(error);
     }
