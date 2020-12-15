@@ -63,7 +63,8 @@ class EditPhone extends Component {
     return (
       <div>
         <Navbar />
-        <FadeLoader color={"#16697a"} loading={this.state.isLoading} />
+        <div className="page">
+        <FadeLoader color="#16697a" loading={this.state.isLoading} />
         {!this.state.isLoading && (
           <PhoneForm
             onSubmit={(currentPhone, file) =>
@@ -72,6 +73,7 @@ class EditPhone extends Component {
             currentPhone={this.state.currentPhone}
           />
         )}
+        </div>
       </div>
     );
   }

@@ -24,8 +24,10 @@ class NewPhonePage extends Component {
     return (
       <div>
         <Navbar />
-        <FadeLoader color={"#16697a"} loading={this.state.isLoading} />
-        <PhoneForm onSubmit={this.handleFormSubmit} />
+        <div className="page">
+          <FadeLoader color="#16697a" loading={this.state.isLoading} />
+          <PhoneForm onSubmit={this.handleFormSubmit} />
+        </div>
       </div>
     );
   }

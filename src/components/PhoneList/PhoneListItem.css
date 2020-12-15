@@ -3,16 +3,12 @@
   margin: 25px;
   padding: 15px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
 }
-/* @media screen and (min-width: 768px) {
-    .card{
-  
-      
-    }} */
+
 .distr-card {
   flex: 1;
+
 }
 
 .name {
@@ -28,15 +24,40 @@
 }
 
 .others {
-  font-size: 14px;
+  
 }
 
 .text {
   margin-left: 10px;
   color: rgb(105, 104, 104);
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
 }
 
 .bold-text {
   font-weight: bold;
   color: rgb(30, 77, 92);
+}
+
+.card-content{
+  display: flex;
+
+}
+
+@media screen and (min-width: 768px) {
+  .card img {
+    height: 175px;
+    
+  }
+  .text {
+    flex: 2;
+    font-size: 16px;
+  }
+
+  .distr-card {
+    display:flex;
+    justify-content: center;
+  }
 }
