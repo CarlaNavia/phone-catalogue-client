@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import PhoneForm from "../../components/PhoneForm";
+import PhoneForm from "../../components/PhoneForm/PhoneForm";
 import PhoneService from "../../lib/phone-service";
 import FadeLoader from "react-spinners/FadeLoader";
+import "./NewPhonePage.css"
 
 class NewPhonePage extends Component {
   state = {
@@ -26,6 +27,7 @@ class NewPhonePage extends Component {
         <Navbar />
         <div className="page">
           <FadeLoader color="#16697a" loading={this.state.isLoading} />
+          <h1 className="add-title">Add a new phone!</h1>
           <PhoneForm onSubmit={this.handleFormSubmit} />
         </div>
       </div>
