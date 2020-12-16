@@ -8,7 +8,6 @@
 
 .distr-card {
   flex: 1;
-
 }
 
 .name {
@@ -23,8 +22,9 @@
   font-weight: bold;
 }
 
-.others {
-  
+.position {
+  display: flex;
+  flex-direction: column;
 }
 
 .text {
@@ -41,15 +41,21 @@
   color: rgb(30, 77, 92);
 }
 
-.card-content{
+.card-content {
   display: flex;
+}
+.card:hover {
+  background-color: rgba(219, 142, 54, 0.5);
+}
 
+.button-showmore {
+  color: rgb(205, 91, 38);
+  justify-content: center;
 }
 
 @media screen and (min-width: 768px) {
   .card img {
     height: 175px;
-    
   }
   .text {
     flex: 2;
@@ -57,7 +63,11 @@
   }
 
   .distr-card {
-    display:flex;
+    display: flex;
     justify-content: center;
+  }
+
+  .button-showmore {
+    display: none;
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./PhoneListItem.css";
+import { Link } from "react-router-dom";
 
 class PhoneListItem extends Component {
   render() {
@@ -18,15 +19,15 @@ class PhoneListItem extends Component {
 
           <div className="distr-card text">
             <div>
-              <p >
+              <p>
                 <span className="bold-text">Screen:</span>
                 {this.props.onePhone.screen}"
               </p>
-              <p >
+              <p>
                 <span className="bold-text">Manufacturer:</span>
                 {this.props.onePhone.manufacturer}
               </p>
-              <p >
+              <p>
                 <span className="bold-text">Processor:</span>
                 {this.props.onePhone.processor}
               </p>
