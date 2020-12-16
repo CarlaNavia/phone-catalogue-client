@@ -47,28 +47,41 @@ class PhoneDetailsPage extends Component {
       <div>
         <Navbar />
         <div className="page">
-          <FadeLoader color="#16697a" loading={this.state.isLoading} />
-          <div className="action-btn">
-            <Link to={"/"}>
-              <img className="icons" src="../../../goback.png" alt="back" />
-            </Link>
-            <div className="actions">
-              <Link to={`/edit/${this.state.aPhone._id}`}>
-                <img
-                  className="icons margin_buttons"
-                  src="../../../edit.png"
-                  alt="edit"
-                />
-              </Link>
-              <button
-                className="delete-btn"
-                onClick={() => this.deleteOnePhone()}
-              >
-                <img className="icons" src="../../../delete.png" alt="delete" />
-              </button>
+          {this.state.isLoading && (
+            <div className="spinner">
+              <FadeLoader color="#16697a" loading={this.state.isLoading} />
             </div>
-          </div>
-          <PhoneDetail eachPhoneDetail={this.state.aPhone} />
+          )}
+
+          {!this.state.isLoading && (
+            <div>
+              <div className="action-btn">
+                <Link to={"/"}>
+                  <img className="icons" src="../../../goback.png" alt="back" />
+                </Link>
+                <div className="actions">
+                  <Link to={`/edit/${this.state.aPhone._id}`}>
+                    <img
+                      className="icons margin_buttons"
+                      src="../../../edit.png"
+                      alt="edit"
+                    />
+                  </Link>
+                  <button
+                    className="delete-btn"
+                    onClick={() => this.deleteOnePhone()}
+                  >
+                    <img
+                      className="icons"
+                      src="../../../delete.png"
+                      alt="delete"
+                    />
+                  </button>
+                </div>
+              </div>
+              <PhoneDetail eachPhoneDetail={this.state.aPhone} />
+            </div>
+          )}
         </div>
       </div>
     );

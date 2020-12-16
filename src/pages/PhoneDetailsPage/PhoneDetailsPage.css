@@ -15,3 +15,8 @@
   display: flex;
   justify-content: space-between;
 }
+.spinner {
+  margin: 250px auto;
+  display: flex;
+  justify-content: center;
+}

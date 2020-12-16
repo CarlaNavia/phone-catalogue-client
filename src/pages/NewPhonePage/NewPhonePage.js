@@ -30,9 +30,17 @@ class NewPhonePage extends Component {
           <Link to={"/"}>
             <img className="icons" src="../../../goback.png" alt="back" />{" "}
           </Link>
-          <FadeLoader color="#16697a" loading={this.state.isLoading} />
-          <h1 className="add-title">Add a new phone!</h1>
-          <PhoneForm onSubmit={this.handleFormSubmit} />
+          {this.state.isLoading && (
+            <div className="spinner">
+              <FadeLoader color="#16697a" loading={this.state.isLoading} />
+            </div>
+          )}
+          {!this.state.isLoading && (
+            <div>
+              <h1 className="add-title">Add a new phone!</h1>
+              <PhoneForm onSubmit={this.handleFormSubmit} />
+            </div>
+          )}
         </div>
       </div>
     );

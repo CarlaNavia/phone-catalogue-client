@@ -32,10 +32,16 @@ class PhonesPage extends Component {
       <div>
         <Navbar />
         <div className="page">
-          <FadeLoader color="#16697a" loading={this.state.isLoading} />
-          <h1 className="home-title">Which phone are you looking for?</h1>
+          {this.state.isLoading && (
+            <div className="spinner">
+              <FadeLoader color="#16697a" loading={this.state.isLoading} />
+            </div>
+          )}
           {!this.state.isLoading && (
-            <PhoneList eachPhone={this.state.listOfPhones} />
+            <div>
+              <h1 className="home-title">Which phone are you looking for?</h1>
+              <PhoneList eachPhone={this.state.listOfPhones} />
+            </div>
           )}
         </div>
       </div>

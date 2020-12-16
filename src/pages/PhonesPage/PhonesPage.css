@@ -1,6 +1,11 @@
-.home-title{
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    padding: 15px;
+.home-title {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px;
+}
+.spinner {
+  margin: 250px auto;
+  display: flex;
+  justify-content: center;
 }
