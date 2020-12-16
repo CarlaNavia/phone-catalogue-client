@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./PhoneListItem.css";
-import { Link } from "react-router-dom";
 
 class PhoneListItem extends Component {
   render() {

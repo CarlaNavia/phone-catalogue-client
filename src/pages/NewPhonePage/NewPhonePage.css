@@ -1,6 +1,10 @@
-.add-title{
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    padding: 15px;
+.add-title {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px;
+}
+.icons {
+  height: 20px;
+  margin: 15px;
 }

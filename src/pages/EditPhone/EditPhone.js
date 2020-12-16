@@ -3,6 +3,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import PhoneForm from "../../components/PhoneForm/PhoneForm";
 import PhoneService from "../../lib/phone-service";
 import FadeLoader from "react-spinners/FadeLoader";
+import { Link } from "react-router-dom";
+import "./EditPhone.css"
 
 class EditPhone extends Component {
   state = {
@@ -64,7 +66,11 @@ class EditPhone extends Component {
       <div>
         <Navbar />
         <div className="page">
+        <Link to={"/"}>
+            <img className="icons" src="../../../goback.png" alt="back" />{" "}
+          </Link>
         <FadeLoader color="#16697a" loading={this.state.isLoading} />
+        <h1 className="edit-title">Edit form</h1>
         {!this.state.isLoading && (
           <PhoneForm
             onSubmit={(currentPhone, file) =>

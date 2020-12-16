@@ -3,7 +3,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import PhoneForm from "../../components/PhoneForm/PhoneForm";
 import PhoneService from "../../lib/phone-service";
 import FadeLoader from "react-spinners/FadeLoader";
-import "./NewPhonePage.css"
+import "./NewPhonePage.css";
+import { Link } from "react-router-dom";
 
 class NewPhonePage extends Component {
   state = {
@@ -26,6 +27,9 @@ class NewPhonePage extends Component {
       <div>
         <Navbar />
         <div className="page">
+          <Link to={"/"}>
+            <img className="icons" src="../../../goback.png" alt="back" />{" "}
+          </Link>
           <FadeLoader color="#16697a" loading={this.state.isLoading} />
           <h1 className="add-title">Add a new phone!</h1>
           <PhoneForm onSubmit={this.handleFormSubmit} />
