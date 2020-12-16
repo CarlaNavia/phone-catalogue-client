@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import PhoneForm from "../../components/PhoneForm";
+import PhoneForm from "../../components/PhoneForm/PhoneForm";
 import PhoneService from "../../lib/phone-service";
 import FadeLoader from "react-spinners/FadeLoader";
 

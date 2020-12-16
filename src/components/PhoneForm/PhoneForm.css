@@ -1,0 +1,27 @@
+.phone-form {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.input-form {
+  border: 1px solid rgb(205, 91, 38);
+  padding: 10px;
+}
+
+.label-form {
+  color: rgb(105, 104, 104);
+}
+
+.phone-form-button {
+  background-color: #16697a42;
+  font-family: "Amatic SC", cursive;
+  font-size: 26px;
+  padding: 5px;
+  color: rgb(205, 91, 38);
+  border: 1px solid rgb(205, 91, 38);
+}
+
+@media screen and (min-width: 768px) {
+ 
+}
