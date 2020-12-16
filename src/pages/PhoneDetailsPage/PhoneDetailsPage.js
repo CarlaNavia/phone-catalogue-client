@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PhoneService from "../../lib/phone-service";
-import PhoneDetail from "../../components/PhoneDetail";
+import PhoneDetail from "../../components/PhoneDetail/PhoneDetail";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import FadeLoader from "react-spinners/FadeLoader";
-import "./PhoneDetailsPage"
+import "./PhoneDetailsPage.css";
 
 class PhoneDetailsPage extends Component {
   state = {
@@ -47,17 +47,28 @@ class PhoneDetailsPage extends Component {
       <div>
         <Navbar />
         <div className="page">
-        <FadeLoader color="#16697a" loading={this.state.isLoading} />
-        <Link to={"/"}>
-            <img
-              className="icons"
-              src="../../../goback.png"
-              alt="back"
-            />
-          </Link>
-        <PhoneDetail eachPhoneDetail={this.state.aPhone} />
-        <Link to={`/edit/${this.state.aPhone._id}`}>Edit Phone</Link>
-        <button onClick={() => this.deleteOnePhone()}>Delete</button>
+          <FadeLoader color="#16697a" loading={this.state.isLoading} />
+          <div className="action-btn">
+            <Link to={"/"}>
+              <img className="icons" src="../../../goback.png" alt="back" />
+            </Link>
+            <div className="actions">
+              <Link to={`/edit/${this.state.aPhone._id}`}>
+                <img
+                  className="icons margin_buttons"
+                  src="../../../edit.png"
+                  alt="edit"
+                />
+              </Link>
+              <button
+                className="delete-btn"
+                onClick={() => this.deleteOnePhone()}
+              >
+                <img className="icons" src="../../../delete.png" alt="delete" />
+              </button>
+            </div>
+          </div>
+          <PhoneDetail eachPhoneDetail={this.state.aPhone} />
         </div>
       </div>
     );

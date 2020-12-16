@@ -1,4 +1,17 @@
 .icons {
-    height: 20px;
-  }
-  
+  height: 20px;
+}
+.delete-btn {
+  background-color: white;
+  border: none;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.action-btn{
+  display: flex;
+  justify-content: space-between;
+}
