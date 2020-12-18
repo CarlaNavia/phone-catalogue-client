@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Phone Catalogue - Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+Are you eager to buy a new mobile phone? Sometimes you feel wuite stressed due to there are several brands, with millions details...? This is your solution! Phone Catalogue is an application to look for a special mobile phone. There, you will be able to:
 
-In the project directory, you can run:
+1-.See the whole list of phones\
+2-.You could check the details of each phone\
+3-.You could add a new phone\
+4-.You could update an existing phone\
+5-.You could delete the phone
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Requirements:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Clone this repo
+```
+$ npm install
+$ npm start
+```
+Bear in mind that you will also need to run the development server (https://github.com/CarlaNavia/phone-catalogue-server).
 
-### `npm test`
+Then, you could open http://localhost:3000 with your browser to see the result.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Learn more...
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This is an application uses:
+- `React.js`: to manage the UI
+- `HTML 5`: to structure the webpage
+- `CSS`: to manage the UX 
+- `Bulma`: for the navbar and the responsiveness
+- A FadeLoader spinner from `react-spinners` 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Deploy
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The deploy was done at Heroku. And the link to check it is: https://catalogue-phone.herokuapp.com/
 
-### `npm run eject`
+## Other
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I worked with Trello in order to deal with all the tasks: https://trello.com/b/7AGhtH3m/phone-catalog. 

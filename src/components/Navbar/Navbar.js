@@ -10,7 +10,7 @@ function Navbar() {
       aria-label="main navigation"
     >
       <div className="navbar-brand">
-        <a className="navbar-item" href="http://localhost:3000/">
+        <a className="navbar-item" href="https://catalogue-phone.herokuapp.com/">
           <h1 className="h1-nav">PHONES</h1>
         </a>
       </div>
