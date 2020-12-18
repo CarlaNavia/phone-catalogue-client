@@ -2,7 +2,9 @@
 
 ## Introduction
 
-Are you eager to buy a new mobile phone? Sometimes you feel wuite stressed due to there are several brands, with millions details...? This is your solution! Phone Catalogue is an application to look for a special mobile phone. There, you will be able to:
+Are you eager to buy a new mobile phone? Sometimes you feel wuite stressed due to there are several brands, with millions details...? This is your solution! Phone Catalogue is an application to look for a special mobile phone. [Click here](https://catalogue-phone.herokuapp.com/) to see the application run.
+
+There, you will be able to:
 
 1-.See the whole list of phones\
 2-.You could check the details of each phone\
