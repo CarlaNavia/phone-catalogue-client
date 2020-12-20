@@ -27,19 +27,6 @@ class EditPhone extends Component {
       });
   };
 
-  handleFileUpload(event) {
-    const files = event.target.files[0];
-    PhoneService.handleUpload(files).then((data) => {
-      this.setState({ currentPhone: data });
-    });
-  }
-
-  handleChange(event, propertyName) {
-    let copyPhone = this.state.currentPhone;
-    copyPhone[propertyName] = event.target.value;
-    this.setState({ currentPhone: copyPhone });
-  }
-
   handleFormSubmit = (currentPhone, file) => {
     this.setState({ isLoading: true });
     PhoneService.editAPhone(currentPhone._id, currentPhone)
